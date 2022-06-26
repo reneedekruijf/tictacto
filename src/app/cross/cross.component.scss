@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+  margin-top: -169px;
+  width: 165px;
+  height: 165px;
+}
+
+.cross {
+  width: 165px;
+  height: 165px;
+  transform: rotate(-45deg);
+}
+
+.cross-first,
+.cross-second {
+  position: absolute;
+  width: 20px;
+  height: 155px;
+  background-color: var(--body-cross);
+  border: 2px solid var(--border-cross);
+  border-radius: 8px;
+}
+
+.cross-first {
+  top: 5px;
+  left: 70px;
+}
+
+.cross-second {
+  top: 5px;
+  left: 70px;
+  transform: rotate(-90deg);
+}
