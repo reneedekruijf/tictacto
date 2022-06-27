@@ -14,20 +14,15 @@
 .cross-first,
 .cross-second {
   position: absolute;
-  width: 20px;
-  height: 155px;
+  width: 15px;
+  height: 150px;
   background-color: var(--body-cross);
-  border: 2px solid var(--border-cross);
+  border: 10px solid var(--border-cross);
   border-radius: 8px;
-}
-
-.cross-first {
   top: 5px;
-  left: 70px;
+  left: 65px;
 }
 
 .cross-second {
-  top: 5px;
-  left: 70px;
   transform: rotate(-90deg);
 }
