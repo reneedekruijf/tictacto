@@ -8,11 +8,11 @@
 
 .disk {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 135px;
-  height: 135px;
-  border: 2px solid var(--border-disk);
+  top: 12px;
+  left: 12px;
+  width: 125px;
+  height: 125px;
+  border: 10px solid var(--border-disk);
   border-radius: 50%;
   background-color: var(--body-disk);
 }
