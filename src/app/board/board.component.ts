@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
 })
 export class BoardComponent {
 
+  cross: boolean = false;
+  disk: boolean = false;
+
   constructor() { }
 
+  handleMove(squareId: string) {
+    console.log(squareId);
+    this.disk = true;
+  }
 }
