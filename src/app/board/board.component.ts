@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class BoardComponent {
 
+  players: boolean = false;
+
   cross: boolean = false;
   disk: boolean = false;
 

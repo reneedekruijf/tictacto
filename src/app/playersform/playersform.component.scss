@@ -1,0 +1,51 @@
+.player__form {
+  display: grid;
+}
+
+.player__label {
+  font-size: 1.5rem;
+  padding: 0 0.5rem 0 0;
+}
+
+.player__input {
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.player__button {
+  background-color: var(--light-blue);
+  border: 4px solid var(--blue);
+  border-radius: 5px;
+  box-shadow: none;
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.playerOne {
+  text-transform: uppercase;
+  margin: 0 0.2rem 0 0;
+
+  &.active {
+    border: 3px solid var(--border-cross);
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: var(--body-cross);
+  }
+}
+
+.playerTwo {
+  text-transform: uppercase;
+  margin: 0 0.2rem 0 5rem;
+
+  &.active {
+    border: 3px solid var(--border-disk);
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: var(--body-disk);
+  }
+}
+

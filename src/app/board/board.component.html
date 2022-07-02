@@ -1,6 +1,9 @@
 <main class="main">
   <h1>Tic Tac To</h1>
-  <div class="main-board">
+
+  <app-playersform *ngIf="!players"></app-playersform>
+
+  <div class="main-board" *ngIf="players">
     <button (click)="handleMove('one')" class="grid one">
       <app-cross *ngIf="cross"></app-cross>
       <app-disk *ngIf="disk"></app-disk>

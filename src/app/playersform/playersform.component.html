@@ -1,0 +1,19 @@
+<div *ngIf="!play">
+  <h2>Please enter the names of the players!</h2>
+  <form [formGroup]="playersForm" (ngSubmit)="onSubmit()" class="player__form">
+    <div>
+      <label for="playerOne" class="player__label">Player One: </label>
+      <input type="text" id="playerOne" class="player__input" formControlName="playerOne" placeholder="enter a name" [required]="true">
+    </div>
+    <div>
+      <label for="playerTwo" class="player__label">Player Two: </label>
+      <input type="text" id="playerTwo" class="player__input" formControlName="playerTwo" placeholder="enter a name" [required]="true">
+    </div>
+    <button type="submit" class="player__button" [disabled]="!playersForm.valid">Start the Game</button>
+  </form>
+</div>
+
+<div *ngIf="play">
+  <h3><span class="playerOne active">Player One:</span> {{ firstPlayer }} <span class="playerTwo active">Player Two:</span> {{ secondPlayer }}</h3>
+</div>
+
