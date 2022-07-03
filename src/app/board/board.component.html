@@ -2,11 +2,8 @@
   <h1>Tic Tac To</h1>
 
   <div *ngIf="playersData.startGame" class="player">
-    <p class="player__one">
-      <span class="player__one__title active">Player One:</span>
-      {{ playersData.firstPlayer }}
-    </p>
-    <p class="player__two"><span class="player__two__title active">Player Two:</span> {{ playersData.secondPlayer }}</p>
+    <p *ngFor="let player of playerWhoToStart; let i = index" class="player__one"><span class="player__title active__cross">
+      Player {{ i===0 ? 'One' : 'Two'}}:</span>{{ player }}</p>
   </div>
 
   <app-playersform *ngIf="!playersData.startGame"></app-playersform>

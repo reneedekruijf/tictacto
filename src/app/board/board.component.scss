@@ -63,26 +63,19 @@
   font-size: 1.5rem;
 }
 
-.player__one__title {
+.player__title {
   text-transform: uppercase;
   border-radius: 5px;
   padding: 0.5rem 0.2rem 0.5rem 0.5rem;
   margin: 0 0.2rem 0 0;
-
-  &.active {
-    border: 3px solid var(--border-cross);
-    background-color: var(--body-cross);
-  }
 }
 
-.player__two__title {
-  text-transform: uppercase;
-  border-radius: 5px;
-  padding: 0.5rem 0.2rem 0.5rem 0.5rem;
-  margin: 0 0.2rem 0 0;
+.active__cross {
+  border: 3px solid var(--border-cross);
+  background-color: var(--body-cross);
+}
 
-  &.active {
-    border: 3px solid var(--border-disk);
-    background-color: var(--body-disk);
-  }
+.active__disk {
+  border: 3px solid var(--border-disk);
+  background-color: var(--body-disk);
 }

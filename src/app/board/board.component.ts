@@ -12,6 +12,8 @@ export class BoardComponent implements OnInit {
   cross: boolean = false;
   disk: boolean = false;
 
+  playerWhoToStart: string[] = [];
+
   playersData: Players = {
     firstPlayer: '',
     secondPlayer: '',
@@ -25,7 +27,14 @@ export class BoardComponent implements OnInit {
     ngOnInit(): void {
       this.showBoardService.players.subscribe(res => {
         this.playersData = res;
+        this.wichPlayerStarts(this.playersData);
       })
+    }
+
+    wichPlayerStarts(data: Players) {
+      const playerToStart = [];
+      playerToStart.push(data.firstPlayer, data.secondPlayer);
+      this.playerWhoToStart = playerToStart.sort((a, b) => 0.5 - Math.random());
     }
 
     handleMove(squareId: string) {
