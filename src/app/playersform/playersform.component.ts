@@ -9,8 +9,6 @@ import { Players } from '../models/board.model';
   styleUrls: ['./playersform.component.scss']
 })
 export class PlayersformComponent {
-  // TODO: add random deside wich player starts
-  // TODO: add random decide wich player has the cross or the disk
 
   constructor(
     private readonly showboardService: ShowboardService

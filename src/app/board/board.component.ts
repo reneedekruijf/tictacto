@@ -7,6 +7,7 @@ import { Players } from '../models/board.model';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
+  // TODO: add random deside wich player starts, X starts
 
   cross: boolean = false;
   disk: boolean = false;

@@ -52,26 +52,37 @@
   border-right: none;
 }
 
-.playerOne {
+.player {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.player__one,
+.player__two {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.player__one__title {
   text-transform: uppercase;
+  border-radius: 5px;
+  padding: 0.5rem 0.2rem 0.5rem 0.5rem;
   margin: 0 0.2rem 0 0;
 
   &.active {
     border: 3px solid var(--border-cross);
-    border-radius: 5px;
-    padding: 0.5rem;
     background-color: var(--body-cross);
   }
 }
 
-.playerTwo {
+.player__two__title {
   text-transform: uppercase;
-  margin: 0 0.2rem 0 5rem;
+  border-radius: 5px;
+  padding: 0.5rem 0.2rem 0.5rem 0.5rem;
+  margin: 0 0.2rem 0 0;
 
   &.active {
     border: 3px solid var(--border-disk);
-    border-radius: 5px;
-    padding: 0.5rem;
     background-color: var(--body-disk);
   }
 }
