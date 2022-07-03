@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowboardService } from '../services/showboard.service';
+import { Players } from '../models/board.model';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -7,16 +8,22 @@ import { ShowboardService } from '../services/showboard.service';
 })
 export class BoardComponent implements OnInit {
 
-  players: boolean =  false;
+  playersData: Players = {
+    firstPlayer: '',
+    secondPlayer: '',
+    startGame: false,
+  }
 
   constructor(
     private readonly showBoardService: ShowboardService
     ) { }
 
     ngOnInit(): void {
-      this.showBoardService.changed.subscribe(val => {
-
-        this.players = val;
+      // this.showBoardService.playersEntered.subscribe(res => {
+      //   this.playersReady = res;
+      // })
+      this.showBoardService.players.subscribe(res => {
+        this.playersData = res;
       })
     }
 }

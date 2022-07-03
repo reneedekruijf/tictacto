@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ShowboardService } from '../services/showboard.service';
+import { Players } from '../models/board.model';
 
-interface Players {
-  firstPlayer: string;
-  secondPlayer: string;
-  startGame: boolean;
-}
 @Component({
   selector: 'app-playersform',
   templateUrl: './playersform.component.html',
@@ -20,14 +16,11 @@ export class PlayersformComponent {
     private readonly showboardService: ShowboardService
   ) { }
 
-  players: Players = {
+  playersData: Players = {
     firstPlayer: '',
     secondPlayer: '',
     startGame: false,
   }
-
-  twoPlayers: boolean = false;
-
 
   playersForm = new FormGroup({
     playerOne: new FormControl(''),
@@ -35,11 +28,13 @@ export class PlayersformComponent {
   })
 
   onSubmit() {
-    this.players = {
-      firstPlayer: this.playersForm.value.playerOne as string,
-      secondPlayer: this.playersForm.value.playerTwo as string,
-      startGame: true
-    }
-    this.showboardService.sendData(true);
+    this.showboardService.sendPlayersData(
+      this.playersData = {
+        firstPlayer: this.playersForm.value.playerOne as string,
+        secondPlayer: this.playersForm.value.playerTwo as string,
+        startGame: true
+      }
+    )
+    this.showboardService.sendPlayersStatus(true);
   }
 }

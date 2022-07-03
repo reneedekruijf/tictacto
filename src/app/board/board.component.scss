@@ -51,3 +51,27 @@
 .nine {
   border-right: none;
 }
+
+.playerOne {
+  text-transform: uppercase;
+  margin: 0 0.2rem 0 0;
+
+  &.active {
+    border: 3px solid var(--border-cross);
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: var(--body-cross);
+  }
+}
+
+.playerTwo {
+  text-transform: uppercase;
+  margin: 0 0.2rem 0 5rem;
+
+  &.active {
+    border: 3px solid var(--border-disk);
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: var(--body-disk);
+  }
+}
