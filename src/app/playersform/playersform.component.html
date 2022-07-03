@@ -1,4 +1,4 @@
-<div *ngIf="!play">
+<div *ngIf="!players.startGame">
   <h2>Please enter the names of the players!</h2>
   <form [formGroup]="playersForm" (ngSubmit)="onSubmit()" class="player__form">
     <div>
@@ -13,7 +13,7 @@
   </form>
 </div>
 
-<div *ngIf="play">
-  <h3><span class="playerOne active">Player One:</span> {{ firstPlayer }} <span class="playerTwo active">Player Two:</span> {{ secondPlayer }}</h3>
+<div *ngIf="players.startGame">
+  <h3><span class="playerOne active">Player One:</span> {{ players.firstPlayer }} <span class="playerTwo active">Player Two:</span> {{ players.secondPlayer }}</h3>
 </div>
 

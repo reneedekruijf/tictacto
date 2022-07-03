@@ -8,6 +8,7 @@ import { BoardComponent } from './board/board.component';
 import { CrossComponent } from './cross/cross.component';
 import { DiskComponent } from './disk/disk.component';
 import { PlayersformComponent } from './playersform/playersform.component';
+import { BoardLayoutComponent } from './board-layout/board-layout.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PlayersformComponent } from './playersform/playersform.component';
     BoardComponent,
     CrossComponent,
     DiskComponent,
-    PlayersformComponent
+    PlayersformComponent,
+    BoardLayoutComponent
   ],
   imports: [
     BrowserModule,

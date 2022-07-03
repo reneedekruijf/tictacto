@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ShowboardService } from '../services/showboard.service';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
 
-  players: boolean = false;
+  players: boolean =  false;
 
-  cross: boolean = false;
-  disk: boolean = false;
+  constructor(
+    private readonly showBoardService: ShowboardService
+    ) { }
 
-  constructor() { }
+    ngOnInit(): void {
+      this.showBoardService.changed.subscribe(val => {
 
-  handleMove(squareId: string) {
-    console.log(squareId);
-    this.disk = true;
-  }
+        this.players = val;
+      })
+    }
 }

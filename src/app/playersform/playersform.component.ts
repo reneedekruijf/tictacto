@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ShowboardService } from '../services/showboard.service';
 
+interface Players {
+  firstPlayer: string;
+  secondPlayer: string;
+  startGame: boolean;
+}
 @Component({
   selector: 'app-playersform',
   templateUrl: './playersform.component.html',
@@ -10,12 +16,18 @@ export class PlayersformComponent {
   // TODO: add random deside wich player starts
   // TODO: add random decide wich player has the cross or the disk
 
-  constructor() { }
+  constructor(
+    private readonly showboardService: ShowboardService
+  ) { }
 
-  firstPlayer: string = '';
-  secondPlayer: string = '';
+  players: Players = {
+    firstPlayer: '',
+    secondPlayer: '',
+    startGame: false,
+  }
 
-  play: boolean = false;
+  twoPlayers: boolean = false;
+
 
   playersForm = new FormGroup({
     playerOne: new FormControl(''),
@@ -23,8 +35,11 @@ export class PlayersformComponent {
   })
 
   onSubmit() {
-    this.firstPlayer = this.playersForm.value.playerOne as string;
-    this.secondPlayer = this.playersForm.value.playerTwo as string;
-    this.play = true;
+    this.players = {
+      firstPlayer: this.playersForm.value.playerOne as string,
+      secondPlayer: this.playersForm.value.playerTwo as string,
+      startGame: true
+    }
+    this.showboardService.sendData(true);
   }
 }
