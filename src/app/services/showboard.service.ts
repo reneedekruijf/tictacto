@@ -5,12 +5,8 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 })
 export class ShowboardService {
 
-  @Output() playersEntered: EventEmitter<any> = new EventEmitter();
-  @Output() players: EventEmitter<any> = new EventEmitter();
 
-  sendPlayersStatus(twoPlayers: boolean): any {
-    this.playersEntered.emit(twoPlayers);
-  }
+  @Output() players: EventEmitter<any> = new EventEmitter();
 
   sendPlayersData(playersInfo: {}): any {
     this.players.emit(playersInfo);

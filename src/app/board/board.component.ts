@@ -8,6 +8,9 @@ import { Players } from '../models/board.model';
 })
 export class BoardComponent implements OnInit {
 
+  cross: boolean = false;
+  disk: boolean = false;
+
   playersData: Players = {
     firstPlayer: '',
     secondPlayer: '',
@@ -19,11 +22,12 @@ export class BoardComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      // this.showBoardService.playersEntered.subscribe(res => {
-      //   this.playersReady = res;
-      // })
       this.showBoardService.players.subscribe(res => {
         this.playersData = res;
       })
+    }
+
+    handleMove(squareId: string) {
+      this.disk = true;
     }
 }

@@ -6,6 +6,20 @@
   </div>
 
   <app-playersform *ngIf="!playersData.startGame"></app-playersform>
-  <app-board-layout *ngIf="playersData.startGame"></app-board-layout>
+
+  <div class="main-board" *ngIf="playersData.startGame">
+    <button (click)="handleMove('one')" class="grid one">
+      <app-cross *ngIf="cross"></app-cross>
+      <app-disk *ngIf="disk"></app-disk>
+    </button>
+    <button (click)="handleMove('two')" class="grid two"></button>
+    <button (click)="handleMove('three')" class="grid three"></button>
+    <button (click)="handleMove('four')" class="grid four"></button>
+    <button (click)="handleMove('five')" class="grid five"></button>
+    <button (click)="handleMove('six')" class="grid six"></button>
+    <button (click)="handleMove('seven')" class="grid seven"></button>
+    <button (click)="handleMove('eight')" class="grid eight"></button>
+    <button (click)="handleMove('nine')" class="grid nine"></button>
+  </div>
 
 </main>

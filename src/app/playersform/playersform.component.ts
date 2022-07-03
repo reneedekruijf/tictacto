@@ -35,6 +35,5 @@ export class PlayersformComponent {
         startGame: true
       }
     )
-    this.showboardService.sendPlayersStatus(true);
   }
 }
