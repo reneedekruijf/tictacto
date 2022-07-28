@@ -8,6 +8,7 @@ import { BoardComponent } from './board/board.component';
 import { CrossComponent } from './cross/cross.component';
 import { DiskComponent } from './disk/disk.component';
 import { PlayersformComponent } from './playersform/playersform.component';
+import { AdDirective } from './directives/ad.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PlayersformComponent } from './playersform/playersform.component';
     CrossComponent,
     DiskComponent,
     PlayersformComponent,
+    AdDirective,
   ],
   imports: [
     BrowserModule,

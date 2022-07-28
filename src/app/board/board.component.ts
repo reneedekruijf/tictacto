@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ShowboardService } from '../services/showboard.service';
 import { Players } from '../models/board.model';
+import { BoardData } from '../models/board.model';
+import { DiskComponent } from '../disk/disk.component';
+import { CrossComponent } from '../cross/cross.component';
+// import { AdDirective } from '../directives/ad.directive';
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -8,10 +13,36 @@ import { Players } from '../models/board.model';
 })
 export class BoardComponent implements OnInit {
 
-  cross: boolean = false;
-  disk: boolean = false;
+  // TODO: add a database / backend
 
-  playerWhoToStart: string[] = [];
+  // @ViewChild(AdDirective, {static: false}) appAdHost!: AdDirective;
+
+  setBoard() {
+    const squares = [];
+    for(let i=1; i<=9; i++) {
+      squares.push({ id: i, cross: false, disk: false });
+    }
+    return squares;
+  }
+
+
+  boardData: any = {
+    boardsQuares: this.setBoard()
+  }
+
+  // boardData: BoardData = {
+  //   boardsQuares: new Array(9),
+  // }
+
+  disk: number = 0;
+  cross: number = 0;
+  squareClicked: number = 0;
+  clicked: number = 0;
+
+  playerOne: boolean = true;
+  playerTwo: boolean = false;
+
+  players: string[] = [];
 
   playersData: Players = {
     firstPlayer: '',
@@ -20,8 +51,9 @@ export class BoardComponent implements OnInit {
   }
 
   constructor(
-    private readonly showBoardService: ShowboardService
-    ) { }
+    private readonly showBoardService: ShowboardService,
+    ) {}
+
 
     ngOnInit(): void {
       this.showBoardService.players.subscribe(res => {
@@ -30,13 +62,25 @@ export class BoardComponent implements OnInit {
       })
     }
 
+
     wichPlayerStarts(data: Players) {
       const playerToStart = [];
       playerToStart.push(data.firstPlayer, data.secondPlayer);
-      this.playerWhoToStart = playerToStart.sort((a, b) => 0.5 - Math.random());
+      this.players = playerToStart.sort((a, b) => 0.5 - Math.random());
     }
 
-    handleMove(squareId: string) {
-      this.disk = true;
+
+    handleMove(square: number): any {
+      if(this.playerOne && this.boardData.boardsQuares[square - 1].id === square) {
+        this.boardData.boardsQuares[square - 1].cross = true;
+        this.playerOne = false;
+        this.playerTwo = true;
+        this.squareClicked = square;
+      } else if(this.playerTwo && this.boardData.boardsQuares[square - 1].id === square) {
+        this.boardData.boardsQuares[square - 1].disk = true;
+        this.playerOne = true;
+        this.playerTwo = false;
+        this.squareClicked = square;
+      }
     }
 }

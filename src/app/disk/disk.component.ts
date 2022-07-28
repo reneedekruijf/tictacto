@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-disk',
   templateUrl: './disk.component.html',
   styleUrls: ['./disk.component.scss']
 })
-export class DiskComponent implements OnInit {
+export class DiskComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
