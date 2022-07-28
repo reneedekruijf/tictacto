@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ShowboardService } from '../services/showboard.service';
 import { Players } from '../models/board.model';
 import { BoardData } from '../models/board.model';
-import { DiskComponent } from '../disk/disk.component';
-import { CrossComponent } from '../cross/cross.component';
 // import { AdDirective } from '../directives/ad.directive';
 
 @Component({
@@ -27,7 +25,7 @@ export class BoardComponent implements OnInit {
 
 
   // TODO: add a model
-  boardData: any = {
+  boardData: BoardData = {
     boardsQuares: this.setBoard()
   }
 

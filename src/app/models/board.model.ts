@@ -5,9 +5,11 @@ export interface Players {
 }
 
 export interface BoardData {
-  boardsQuares: [{
-    id: number;
-    cross: boolean;
-    disk: boolean;
-  }];
+  boardsQuares: boardsQuaresData[];
+}
+
+export interface boardsQuaresData {
+  id: number;
+  disk: boolean;
+  cross: boolean;
 }
