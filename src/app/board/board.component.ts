@@ -23,15 +23,9 @@ export class BoardComponent implements OnInit {
     return squares;
   }
 
-
-  // TODO: add a model
   boardData: BoardData = {
     boardsQuares: this.setBoard()
   }
-
-  // boardData: BoardData = {
-  //   boardsQuares: new Array(9),
-  // }
 
   disk: number = 0;
   cross: number = 0;
