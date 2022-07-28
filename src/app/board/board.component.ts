@@ -26,6 +26,7 @@ export class BoardComponent implements OnInit {
   }
 
 
+  // TODO: add a model
   boardData: any = {
     boardsQuares: this.setBoard()
   }

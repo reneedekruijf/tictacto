@@ -8,6 +8,8 @@
 
   <app-playersform *ngIf="!playersData.startGame"></app-playersform>
 
+  <!-- TODO: the padding / margin oif cross and disk is bigger as the sqaure -->
+
   <div class="main-board" *ngIf="playersData.startGame">
     <button
     *ngFor="let boardSquare of boardData.boardsQuares;"
@@ -19,16 +21,5 @@
       <app-disk *ngIf="boardSquare.disk" id="{{ 'disk' +  boardSquare.id }}"></app-disk>
       <app-cross *ngIf="boardSquare.cross" id="{{ 'cross' + boardSquare.id }}"></app-cross>
     </button>
-    <!-- <button
-    *ngFor="let boardSquare of boardData.boardsQuares; let i = index"
-    (click)="handleMove($event, i + 1)"
-    [disabled]="squareClicked === ( i + 1)"
-    class="grid {{ 'square' + (i + 1)}}"
-    id="{{ i + 1 }}"
-    >
-      <app-disk *ngIf="disk === (i + 1)" id="{{ 'disk' +  (i + 1) }}"></app-disk>
-      <app-cross *ngIf="cross === (i + 1)" id="{{ 'cross' + (i + 1) }}"></app-cross>
-    </button> -->
   </div>
-
 </main>
