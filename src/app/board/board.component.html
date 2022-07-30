@@ -8,8 +8,6 @@
 
   <app-playersform *ngIf="!playersData.startGame"></app-playersform>
 
-  <!-- TODO: the padding / margin oif cross and disk is bigger as the sqaure -->
-
   <div class="main-board" *ngIf="playersData.startGame">
     <button
     *ngFor="let boardSquare of boardData.boardsQuares;"

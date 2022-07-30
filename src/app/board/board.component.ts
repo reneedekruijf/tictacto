@@ -27,11 +27,6 @@ export class BoardComponent implements OnInit {
     boardsQuares: this.setBoard()
   }
 
-  // disk: number = 0;
-  // cross: number = 0;
-  // squareClicked: number = 0;
-  // clicked: number = 0;
-
   playerOne: boolean = true;
   playerTwo: boolean = false;
 
