@@ -1,12 +1,12 @@
 .wrapper {
   position: relative;
-  width: 165px;
-  height: 165px;
+  width: 140px;
+  height: 140px;
 }
 
 .cross {
-  width: 165px;
-  height: 165px;
+  width: 140px;
+  height: 140px;
   transform: rotate(-45deg);
 }
 
@@ -18,8 +18,8 @@
   background-color: var(--body-cross);
   border: 10px solid var(--border-cross);
   border-radius: 8px;
-  top: 5px;
-  left: 65px;
+  top: -8px;
+  left: 57px;
 }
 
 .cross-second {
