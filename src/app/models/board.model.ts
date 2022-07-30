@@ -12,4 +12,5 @@ export interface boardsQuaresData {
   id: number;
   disk: boolean;
   cross: boolean;
+  clickable: boolean;
 }

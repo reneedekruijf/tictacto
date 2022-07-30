@@ -14,7 +14,7 @@
     <button
     *ngFor="let boardSquare of boardData.boardsQuares;"
     (click)="handleMove(boardSquare.id)"
-    [disabled]="squareClicked === boardSquare.id"
+    [disabled]="!boardSquare.clickable"
     class="grid {{ 'square' + boardSquare.id}}"
     id="{{ boardSquare.id }}"
     >

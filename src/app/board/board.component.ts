@@ -18,7 +18,7 @@ export class BoardComponent implements OnInit {
   setBoard() {
     const squares = [];
     for(let i=1; i<=9; i++) {
-      squares.push({ id: i, cross: false, disk: false });
+      squares.push({ id: i, cross: false, disk: false, clickable: true });
     }
     return squares;
   }
@@ -27,10 +27,10 @@ export class BoardComponent implements OnInit {
     boardsQuares: this.setBoard()
   }
 
-  disk: number = 0;
-  cross: number = 0;
-  squareClicked: number = 0;
-  clicked: number = 0;
+  // disk: number = 0;
+  // cross: number = 0;
+  // squareClicked: number = 0;
+  // clicked: number = 0;
 
   playerOne: boolean = true;
   playerTwo: boolean = false;
@@ -68,12 +68,12 @@ export class BoardComponent implements OnInit {
         this.boardData.boardsQuares[square - 1].cross = true;
         this.playerOne = false;
         this.playerTwo = true;
-        this.squareClicked = square;
+        this.boardData.boardsQuares[square - 1].clickable = false;
       } else if(this.playerTwo && this.boardData.boardsQuares[square - 1].id === square) {
         this.boardData.boardsQuares[square - 1].disk = true;
         this.playerOne = true;
         this.playerTwo = false;
-        this.squareClicked = square;
+        this.boardData.boardsQuares[square - 1].clickable = false;
       }
     }
 }
