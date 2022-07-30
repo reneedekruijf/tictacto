@@ -6,6 +6,7 @@ export interface Players {
 
 export interface BoardData {
   boardsQuares: boardsQuaresData[];
+  gameFinished: boolean;
 }
 
 export interface boardsQuaresData {

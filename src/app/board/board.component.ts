@@ -24,7 +24,8 @@ export class BoardComponent implements OnInit {
   }
 
   boardData: BoardData = {
-    boardsQuares: this.setBoard()
+    boardsQuares: this.setBoard(),
+    gameFinished: false
   }
 
   playerOne: boolean = true;
@@ -58,7 +59,14 @@ export class BoardComponent implements OnInit {
     }
 
 
+    timesPlayed: number = 1;
     handleMove(square: number): any {
+      if(this.timesPlayed === 9) {
+        this.boardData.gameFinished = true;
+      }
+      this.timesPlayed++;
+
+
       if(this.playerOne && this.boardData.boardsQuares[square - 1].id === square) {
         this.boardData.boardsQuares[square - 1].cross = true;
         this.playerOne = false;

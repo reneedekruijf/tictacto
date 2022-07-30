@@ -20,4 +20,5 @@
       <app-cross *ngIf="boardSquare.cross" id="{{ 'cross' + boardSquare.id }}"></app-cross>
     </button>
   </div>
+  <app-finish *ngIf="!boardData.gameFinished"></app-finish>
 </main>
