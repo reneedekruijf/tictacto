@@ -1,4 +1,4 @@
-import { Directive, Input, ViewContainerRef } from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: '[appAdHost]'
@@ -6,6 +6,7 @@ import { Directive, Input, ViewContainerRef } from '@angular/core';
 export class AdDirective {
 
   constructor(
-    public viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef,
+    private templateRef: TemplateRef<any>
   ) {}
 }

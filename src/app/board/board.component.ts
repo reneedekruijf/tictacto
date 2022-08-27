@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ShowboardService } from '../services/showboard.service';
 import { Players } from '../models/board.model';
 import { BoardData } from '../models/board.model';
-// import { AdDirective } from '../directives/ad.directive';
 
 @Component({
   selector: 'app-board',
@@ -12,8 +11,6 @@ import { BoardData } from '../models/board.model';
 export class BoardComponent implements OnInit {
 
   // TODO: add a database / backend
-
-  // @ViewChild(AdDirective, {static: false}) appAdHost!: AdDirective;
 
   setBoard() {
     const squares = [];
@@ -79,4 +76,9 @@ export class BoardComponent implements OnInit {
         this.boardData.boardsQuares[square - 1].clickable = false;
       }
     }
+
+ restart() {
+  this.boardData.gameFinished = false;
+
+  }
 }
