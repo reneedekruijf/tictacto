@@ -11,6 +11,8 @@ import { BoardData } from '../models/board.model';
 export class BoardComponent implements OnInit {
 
   // TODO: add a database / backend
+  // TODO: logic for a winner: three the same
+  // TODO: logic for no winner: no same = no winner
   // TODO: start over completly
   // TODO: start over with same players
   // TODO: keep the score of the same players
@@ -78,6 +80,8 @@ export class BoardComponent implements OnInit {
         this.playerTwo = false;
         this.boardData.boardsQuares[square - 1].clickable = false;
       }
+      console.log(this.boardData.boardsQuares);
+
     }
 
  restart() {
