@@ -11,6 +11,9 @@ import { BoardData } from '../models/board.model';
 export class BoardComponent implements OnInit {
 
   // TODO: add a database / backend
+  // TODO: start over completly
+  // TODO: start over with same players
+  // TODO: keep the score of the same players
 
   setBoard() {
     const squares = [];
@@ -78,7 +81,6 @@ export class BoardComponent implements OnInit {
     }
 
  restart() {
-  this.boardData.gameFinished = false;
-
-  }
+  window.location.reload();
+ }
 }
