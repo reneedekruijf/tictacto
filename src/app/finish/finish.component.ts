@@ -7,6 +7,8 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 })
 export class FinishComponent {
   modal = true;
+  noWinner = true;
+  winner = false;
 
   @Output() newItemEvent = new EventEmitter<boolean>();
 
