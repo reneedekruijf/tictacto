@@ -85,6 +85,7 @@ export class BoardComponent implements OnInit {
     }
 
  restart() {
+  // also restart with keeping current users
   window.location.reload();
  }
 }

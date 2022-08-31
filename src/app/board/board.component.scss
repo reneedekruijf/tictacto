@@ -2,6 +2,7 @@
   display: grid;
   justify-content: center;
   text-align: center;
+  position: relative;
 }
 
 .main-board {
@@ -77,4 +78,21 @@
 .active__disk {
   border: 3px solid var(--border-disk);
   background-color: var(--body-disk);
+}
+
+.resetGame {
+  position: absolute;
+  right: 1rem;
+}
+
+.button__resetGame {
+  background-color: var(--light-blue);
+  border: 4px solid var(--blue);
+  border-radius: 5px;
+  box-shadow: none;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
 }
