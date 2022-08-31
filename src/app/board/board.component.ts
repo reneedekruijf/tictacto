@@ -46,45 +46,52 @@ export class BoardComponent implements OnInit {
     ) {}
 
 
-    ngOnInit(): void {
-      this.showBoardService.players.subscribe(res => {
-        this.playersData = res;
-        this.wichPlayerStarts(this.playersData);
-      })
+  ngOnInit(): void {
+    this.showBoardService.players.subscribe(res => {
+      this.playersData = res;
+      this.wichPlayerStarts(this.playersData);
+    })
+  }
+
+
+  wichPlayerStarts(data: Players) {
+    const playerToStart = [];
+    playerToStart.push(data.firstPlayer, data.secondPlayer);
+    this.players = playerToStart.sort((a, b) => 0.5 - Math.random());
+  }
+
+
+  timesPlayed: number = 1;
+  handleMove(square: number): any {
+    if(this.timesPlayed === 9) {
+      this.boardData.gameFinished = true;
     }
+    this.timesPlayed++;
 
-
-    wichPlayerStarts(data: Players) {
-      const playerToStart = [];
-      playerToStart.push(data.firstPlayer, data.secondPlayer);
-      this.players = playerToStart.sort((a, b) => 0.5 - Math.random());
+    if(this.playerOne && this.boardData.boardsQuares[square - 1].id === square) {
+      this.boardData.boardsQuares[square - 1].cross = true;
+      this.playerOne = false;
+      this.playerTwo = true;
+      this.boardData.boardsQuares[square - 1].clickable = false;
+    } else if(this.playerTwo && this.boardData.boardsQuares[square - 1].id === square) {
+      this.boardData.boardsQuares[square - 1].disk = true;
+      this.playerOne = true;
+      this.playerTwo = false;
+      this.boardData.boardsQuares[square - 1].clickable = false;
     }
+    this.checkForWinner();
+  }
 
+  checkForWinner() {
+    // three on a row
+    const threeOnRow: any = [];
+    this.boardData.boardsQuares.forEach((item, index) => {
+      threeOnRow.push(item.cross)
+      console.log(threeOnRow);
+    })
+  }
 
-    timesPlayed: number = 1;
-    handleMove(square: number): any {
-      if(this.timesPlayed === 9) {
-        this.boardData.gameFinished = true;
-      }
-      this.timesPlayed++;
-
-
-      if(this.playerOne && this.boardData.boardsQuares[square - 1].id === square) {
-        this.boardData.boardsQuares[square - 1].cross = true;
-        this.playerOne = false;
-        this.playerTwo = true;
-        this.boardData.boardsQuares[square - 1].clickable = false;
-      } else if(this.playerTwo && this.boardData.boardsQuares[square - 1].id === square) {
-        this.boardData.boardsQuares[square - 1].disk = true;
-        this.playerOne = true;
-        this.playerTwo = false;
-        this.boardData.boardsQuares[square - 1].clickable = false;
-      }
-      console.log(this.boardData.boardsQuares);
-
-    }
-
- restart() {
+  restart() {
   window.location.reload();
- }
+  }
 }
