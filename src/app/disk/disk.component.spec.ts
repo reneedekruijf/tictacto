@@ -8,9 +8,8 @@ describe('DiskComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DiskComponent ]
-    })
-    .compileComponents();
+      declarations: [DiskComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DiskComponent);
     component = fixture.componentInstance;

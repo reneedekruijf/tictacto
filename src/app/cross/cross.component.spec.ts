@@ -8,9 +8,8 @@ describe('CrossComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrossComponent ]
-    })
-    .compileComponents();
+      declarations: [CrossComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CrossComponent);
     component = fixture.componentInstance;

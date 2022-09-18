@@ -6,10 +6,9 @@ import { BoardData } from '../models/board.model';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-
   // TODO: add a database / backend
   // TODO: logic for a winner: three the same
   // TODO: logic for no winner: no same = no winner
@@ -19,7 +18,7 @@ export class BoardComponent implements OnInit {
 
   setBoard() {
     const squares = [];
-    for(let i=1; i<=9; i++) {
+    for (let i = 1; i <= 9; i++) {
       squares.push({ id: i, cross: false, disk: false, clickable: true });
     }
     return squares;
@@ -27,8 +26,8 @@ export class BoardComponent implements OnInit {
 
   boardData: BoardData = {
     boardsQuares: this.setBoard(),
-    gameFinished: false
-  }
+    gameFinished: false,
+  };
 
   playerOne: boolean = true;
   playerTwo: boolean = false;
@@ -39,20 +38,16 @@ export class BoardComponent implements OnInit {
     firstPlayer: '',
     secondPlayer: '',
     startGame: false,
-  }
+  };
 
-  constructor(
-    private readonly showBoardService: ShowboardService,
-    ) {}
-
+  constructor(private readonly showBoardService: ShowboardService) {}
 
   ngOnInit(): void {
     this.showBoardService.players.subscribe(res => {
       this.playersData = res;
       this.wichPlayerStarts(this.playersData);
-    })
+    });
   }
-
 
   wichPlayerStarts(data: Players) {
     const playerToStart = [];
@@ -60,21 +55,25 @@ export class BoardComponent implements OnInit {
     this.players = playerToStart.sort((a, b) => 0.5 - Math.random());
   }
 
-
   timesPlayed: number = 1;
   handleMove(square: number): any {
-    if(this.timesPlayed === 9) {
+    if (this.timesPlayed === 9) {
       this.boardData.gameFinished = true;
     }
     this.timesPlayed++;
 
-
-    if(this.playerOne && this.boardData.boardsQuares[square - 1].id === square) {
+    if (
+      this.playerOne &&
+      this.boardData.boardsQuares[square - 1].id === square
+    ) {
       this.boardData.boardsQuares[square - 1].cross = true;
       this.playerOne = false;
       this.playerTwo = true;
       this.boardData.boardsQuares[square - 1].clickable = false;
-    } else if(this.playerTwo && this.boardData.boardsQuares[square - 1].id === square) {
+    } else if (
+      this.playerTwo &&
+      this.boardData.boardsQuares[square - 1].id === square
+    ) {
       this.boardData.boardsQuares[square - 1].disk = true;
       this.playerOne = true;
       this.playerTwo = false;
@@ -89,12 +88,11 @@ export class BoardComponent implements OnInit {
     this.boardData.boardsQuares.forEach((item, index) => {
       threeOnRow.push(item.cross);
       console.log(threeOnRow);
-
-    })
+    });
   }
 
   restart() {
-  // also restart with keeping current users
-  window.location.reload();
+    // also restart with keeping current users
+    window.location.reload();
   }
 }

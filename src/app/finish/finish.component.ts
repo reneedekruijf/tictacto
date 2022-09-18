@@ -3,7 +3,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-finish',
   templateUrl: './finish.component.html',
-  styleUrls: ['./finish.component.scss']
+  styleUrls: ['./finish.component.scss'],
 })
 export class FinishComponent {
   modal = true;
@@ -17,6 +17,5 @@ export class FinishComponent {
     this.newItemEvent.emit(this.modal);
   }
 
-  constructor() { }
-
+  constructor() {}
 }

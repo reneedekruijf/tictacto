@@ -6,32 +6,29 @@ import { Players } from '../models/board.model';
 @Component({
   selector: 'app-playersform',
   templateUrl: './playersform.component.html',
-  styleUrls: ['./playersform.component.scss']
+  styleUrls: ['./playersform.component.scss'],
 })
 export class PlayersformComponent {
-
-  constructor(
-    private readonly showboardService: ShowboardService
-  ) { }
+  constructor(private readonly showboardService: ShowboardService) {}
 
   playersData: Players = {
     firstPlayer: '',
     secondPlayer: '',
     startGame: false,
-  }
+  };
 
   playersForm = new FormGroup({
     playerOne: new FormControl(''),
-    playerTwo: new FormControl('')
-  })
+    playerTwo: new FormControl(''),
+  });
 
   onSubmit() {
     this.showboardService.sendPlayersData(
-      this.playersData = {
+      (this.playersData = {
         firstPlayer: this.playersForm.value.playerOne as string,
         secondPlayer: this.playersForm.value.playerTwo as string,
-        startGame: true
-      }
-    )
+        startGame: true,
+      })
+    );
   }
 }

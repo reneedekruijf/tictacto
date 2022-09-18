@@ -1,6 +1,10 @@
 <div class="poppupFinish">
   <p class="poppupFinish__headingTwo">Game has ended!</p>
   <p class="poppupFinish__headingThree" *ngIf="noWinner">There is no winner</p>
-  <p class="poppupFinish__headingThree" *ngIf="winner">The winner is: <span class="poppupFinish__winner">Renee</span></p>
-  <button class="poppupFinish__restart" (click)="restartGame()">Play Again</button>
+  <p class="poppupFinish__headingThree" *ngIf="winner">
+    The winner is: <span class="poppupFinish__winner">Renee</span>
+  </p>
+  <button class="poppupFinish__restart" (click)="restartGame()">
+    Play Again
+  </button>
 </div>

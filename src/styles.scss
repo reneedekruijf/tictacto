@@ -1,31 +1,37 @@
-@import "@fontsource/teko";
+@import '@fontsource/teko';
 
 html {
   font-size: 100%;
 }
 
 :root {
-  --blue: #98BBFF;
-  --light-blue: #E1F4FE;
-  --border-cross: #1BAB23;
-  --body-cross: #ADFFC7;
-  --border-disk: #AB0A4C;
+  --blue: #98bbff;
+  --light-blue: #e1f4fe;
+  --border-cross: #1bab23;
+  --body-cross: #adffc7;
+  --border-disk: #ab0a4c;
   --body-disk: #f86866;
 
   --white: rgb(250, 247, 247);
 }
 
 body {
-  font-family: "Teko", sans-serif;
+  font-family: 'Teko', sans-serif;
   font-weight: 400;
   line-height: 1.75;
   color: #000000;
   position: relative;
 }
 
-p {margin-bottom: 1rem;}
+p {
+  margin-bottom: 1rem;
+}
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 3rem 0 1.38rem;
   font-family: 'Teko', sans-serif;
   font-weight: 300;
@@ -44,4 +50,3 @@ h2 {
 h3 {
   font-size: 1.953rem;
 }
-
