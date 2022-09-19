@@ -2,6 +2,11 @@
   position: relative;
   width: 140px;
   height: 140px;
+
+  @media only screen and (max-width: 530px) {
+    width: 4vw;
+    height: 4vw;
+  }
 }
 
 .disk {
@@ -13,4 +18,12 @@
   border: 10px solid var(--border-disk);
   border-radius: 50%;
   background-color: var(--body-disk);
+
+  @media only screen and (max-width: 530px) {
+    top: -10vw;
+    left: 1.3vw;
+    width: 23vw;
+    height: 23vw;
+    border: 5px solid var(--border-disk);
+  }
 }

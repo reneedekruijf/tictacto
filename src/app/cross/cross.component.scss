@@ -2,12 +2,22 @@
   position: relative;
   width: 140px;
   height: 140px;
+
+  @media only screen and (max-width: 530px) {
+    width: 4vw;
+    height: 4vw;
+  }
 }
 
 .cross {
   width: 140px;
   height: 140px;
   transform: rotate(-45deg);
+
+  @media only screen and (max-width: 530px) {
+    width: 4vw;
+    height: 4vw;
+  }
 }
 
 .cross-first,
@@ -20,6 +30,14 @@
   border-radius: 8px;
   top: -8px;
   left: 57px;
+
+  @media only screen and (max-width: 530px) {
+    width: 2vw;
+    height: 27vw;
+    top: -4vw;
+    left: 8vw;
+    border: 5px solid var(--border-cross);
+  }
 }
 
 .cross-second {
