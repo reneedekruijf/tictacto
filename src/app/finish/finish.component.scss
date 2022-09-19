@@ -18,6 +18,16 @@
   transform: translate(-50%, -50%);
 }
 
+.poppupFinish__layover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-blue);
+  opacity: 0.8;
+}
+
 .poppupFinish__headingTwo,
 .poppupFinish__headingThree,
 .poppupFinish__winner {
