@@ -32,5 +32,6 @@
   </div>
   <app-finish
     *ngIf="boardData.gameFinished"
-    (newItemEvent)="restart()"></app-finish>
+    (newItemEvent)="restart()"
+    [playersInfo]="playersData"></app-finish>
 </main>

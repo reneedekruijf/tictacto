@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter} from '@angular/core';
-
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { ShowboardService } from '../services/showboard.service';
+import { Players } from '../models/board.model';
 @Component({
   selector: 'app-finish',
   templateUrl: './finish.component.html',
@@ -7,15 +8,13 @@ import { Component, Output, EventEmitter} from '@angular/core';
 })
 export class FinishComponent {
   modal = true;
-  noWinner = true;
-  winner = false;
 
+  @Input() playersInfo?: Players;
   @Output() newItemEvent = new EventEmitter<boolean>();
 
-  restartGame() {
-    this.modal = false;
-    this.newItemEvent.emit(this.modal);
-  }
+  constructor(private showboardService: ShowboardService) {}
 
-  constructor() {}
+  restartGame() {
+    this.newItemEvent.emit(false);
+  }
 }

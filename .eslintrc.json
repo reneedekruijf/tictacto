@@ -30,8 +30,7 @@
             "style": "kebab-case"
           }
         ],
-        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-        "no-console": "warn"
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }]
       }
     },
     {
