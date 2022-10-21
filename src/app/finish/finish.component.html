@@ -6,7 +6,7 @@
   </p>
   <p class="poppupFinish__headingThree" *ngIf="playersInfo?.winner">
     <!-- TODO: this is not the actual winner -->
-    The winner is: <span class="poppupFinish__winner">{{ playersInfo?.firstPlayer }}</span>
+    The winner is: <span class="poppupFinish__winner">{{ playersInfo?.winnersName }}</span>
   </p>
   <button class="poppupFinish__restart" (click)="restartGame()">
     Play Again

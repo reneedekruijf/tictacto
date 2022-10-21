@@ -38,6 +38,8 @@ export class BoardComponent implements OnInit {
     firstPlayer: '',
     secondPlayer: '',
     startGame: false,
+    winner: false,
+    winnersName: '',
   };
 
   constructor(private readonly showBoardService: ShowboardService) {}
@@ -55,6 +57,7 @@ export class BoardComponent implements OnInit {
     this.players = playerToStart.sort((a, b) => 0.5 - Math.random());
   }
 
+  // TODO: kiss and refactor if possible
   timesPlayed: number = 1;
   handleMove(square: number): any {
     if (this.timesPlayed === 9) {
@@ -83,16 +86,53 @@ export class BoardComponent implements OnInit {
   }
 
   isThereWinner() {
-    // three the same on a row
-    const threeOnRow: any = [];
-    this.boardData.boardsQuares.forEach((item, index) => {
-      threeOnRow.push(item.cross);
-      console.log(threeOnRow);
-    });
+    // TODO: KISS and refactor
+
+    let crosses = this.boardData.boardsQuares.map(item => item.cross);
+    if (crosses[0] === true && crosses[1] === true && crosses[2] === true) {
+      this.endResults('cross');
+    }
+    if (crosses[3] === true && crosses[4] === true && crosses[5] === true) {
+      this.endResults('cross');
+    }
+    if (crosses[6] === true && crosses[7] === true && crosses[8] === true) {
+      this.endResults('cross');
+    }
+    if (crosses[0] === true && crosses[4] === true && crosses[8] === true) {
+      this.endResults('cross');
+    }
+    if (crosses[2] === true && crosses[4] === true && crosses[6] === true) {
+      this.endResults('cross');
+    }
+
+    let disks = this.boardData.boardsQuares.map(item => item.disk);
+    if (disks[0] === true && disks[1] === true && disks[2] === true) {
+      this.endResults('disk');
+    }
+    if (disks[3] === true && disks[4] === true && disks[5] === true) {
+      this.endResults('disk');
+    }
+    if (disks[6] === true && disks[7] === true && disks[8] === true) {
+      this.endResults('disk');
+    }
+    if (disks[0] === true && disks[4] === true && disks[8] === true) {
+      this.endResults('disk');
+    }
+    if (disks[2] === true && disks[4] === true && disks[6] === true) {
+      this.endResults('disk');
+    }
+  }
+
+  endResults(winner: string) {
+    if (winner === 'cross') this.playersData.winnersName = this.players[0];
+    if (winner === 'disk') this.playersData.winnersName = this.players[1];
+
+    this.playersData.winner = true;
+    this.boardData.gameFinished = true;
   }
 
   restart() {
-    // also restart with keeping current users
+    //TODO: also restart with keeping current users
     window.location.reload();
   }
 }

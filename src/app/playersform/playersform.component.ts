@@ -16,6 +16,7 @@ export class PlayersformComponent {
     secondPlayer: '',
     startGame: false,
     winner: false,
+    winnersName: '',
   };
 
   playersForm = new FormGroup({
@@ -30,6 +31,7 @@ export class PlayersformComponent {
         secondPlayer: this.playersForm.value.playerTwo as string,
         startGame: true,
         winner: false,
+        winnersName: '',
       })
     );
   }

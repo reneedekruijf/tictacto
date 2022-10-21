@@ -3,6 +3,7 @@ export interface Players {
   secondPlayer: string;
   startGame: boolean;
   winner: boolean;
+  winnersName: string;
 }
 
 export interface BoardData {
