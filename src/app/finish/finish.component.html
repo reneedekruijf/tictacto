@@ -5,10 +5,20 @@
     There is no winner
   </p>
   <p class="poppupFinish__headingThree" *ngIf="playersInfo?.winner">
-    <!-- TODO: this is not the actual winner -->
-    The winner is: <span class="poppupFinish__winner">{{ playersInfo?.winnersName }}</span>
+    The winner is:<span
+      [ngClass]="{
+        'poppupFinish__winner poppupFinish__winner--cross':
+          playersInfo?.winnersPiece === 'cross',
+        'poppupFinish__winner poppupFinish__winner--disk':
+          playersInfo?.winnersPiece === 'disk'
+      }">
+      {{ playersInfo?.winnersName }}
+    </span>
   </p>
   <button class="poppupFinish__restart" (click)="restartGame()">
     Play Again
   </button>
 </div>
+
+<!-- The winner is:<span class="poppupFinish__winner">{{ playersInfo?.winnersName }}</span> -->
+

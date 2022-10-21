@@ -31,12 +31,13 @@
 .poppupFinish__headingTwo,
 .poppupFinish__headingThree,
 .poppupFinish__winner {
-  margin: 0;
+  margin: 0 0 0 0;
   padding: 0;
   font-size: 1.5rem;
 }
 
 .poppupFinish__winner {
+  margin: 0 0 0 0.5rem;
   font-weight: 400;
   font-size: 1.7rem;
   width: 100px;
@@ -45,9 +46,15 @@
   border-radius: 5px;
   padding: 0.2rem 0.7rem 0.2rem 0.7rem;
 
-  // border: 3px solid var(--border-cross);
-  background-color: var(--body-cross);
-  // background-color: var(--body-disk);
+  &--disk {
+    background-color: var(--body-disk);
+    border: 3px solid var(--border-disk);
+  }
+
+  &--cross {
+    background-color: var(--body-cross);
+    border: 3px solid var(--border-cross);
+  }
 }
 
 .poppupFinish__restart {

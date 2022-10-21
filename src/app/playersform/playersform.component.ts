@@ -17,6 +17,7 @@ export class PlayersformComponent {
     startGame: false,
     winner: false,
     winnersName: '',
+    winnersPiece: '',
   };
 
   playersForm = new FormGroup({
@@ -32,6 +33,7 @@ export class PlayersformComponent {
         startGame: true,
         winner: false,
         winnersName: '',
+        winnersPiece: '',
       })
     );
   }

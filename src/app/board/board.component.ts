@@ -40,6 +40,7 @@ export class BoardComponent implements OnInit {
     startGame: false,
     winner: false,
     winnersName: '',
+    winnersPiece: '',
   };
 
   constructor(private readonly showBoardService: ShowboardService) {}
@@ -95,14 +96,21 @@ export class BoardComponent implements OnInit {
   }
 
   endResults(winner: string) {
-    if (winner === 'cross') this.playersData.winnersName = this.players[0];
-    if (winner === 'disk') this.playersData.winnersName = this.players[1];
+    if (winner === 'cross') {
+      this.playersData.winnersName = this.players[0];
+      this.playersData.winnersPiece = 'cross';
+    }
+    if (winner === 'disk') {
+      this.playersData.winnersName = this.players[1];
+      this.playersData.winnersPiece = 'disk';
+    }
     this.playersData.winner = true;
     this.boardData.gameFinished = true;
   }
 
   restart() {
     //TODO: also restart with keeping current users
+    this.playersData.winnersName = '';
     window.location.reload();
   }
 }
