@@ -6,12 +6,8 @@
   </p>
   <p class="poppupFinish__headingThree" *ngIf="playersInfo?.winner">
     The winner is:<span
-      [ngClass]="{
-        'poppupFinish__winner poppupFinish__winner--cross':
-          playersInfo?.winnersPiece === 'cross',
-        'poppupFinish__winner poppupFinish__winner--disk':
-          playersInfo?.winnersPiece === 'disk'
-      }">
+      [ngClass]="[
+        playersInfo?.winnersPiece === 'cross' ? 'poppupFinish__winner cross' : 'poppupFinish__winner disk']">
       {{ playersInfo?.winnersName }}
     </span>
   </p>

@@ -45,16 +45,16 @@
   text-transform: uppercase;
   border-radius: 5px;
   padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+}
 
-  &--disk {
-    background-color: var(--body-disk);
-    border: 3px solid var(--border-disk);
-  }
+.disk {
+  background-color: var(--body-disk);
+  border: 3px solid var(--border-disk);
+}
 
-  &--cross {
-    background-color: var(--body-cross);
-    border: 3px solid var(--border-cross);
-  }
+.cross {
+  background-color: var(--body-cross);
+  border: 3px solid var(--border-cross);
 }
 
 .poppupFinish__restart {
