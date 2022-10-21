@@ -57,7 +57,6 @@ export class BoardComponent implements OnInit {
     this.players = playerToStart.sort((a, b) => 0.5 - Math.random());
   }
 
-  // TODO: kiss and refactor if possible
   timesPlayed: number = 1;
   handleMove(square: number): any {
     if (this.timesPlayed === 9) {
@@ -65,18 +64,12 @@ export class BoardComponent implements OnInit {
     }
     this.timesPlayed++;
 
-    if (
-      this.playerOne &&
-      this.boardData.boardsQuares[square - 1].id === square
-    ) {
+    if (this.playerOne) {
       this.boardData.boardsQuares[square - 1].cross = true;
       this.playerOne = false;
       this.playerTwo = true;
       this.boardData.boardsQuares[square - 1].clickable = false;
-    } else if (
-      this.playerTwo &&
-      this.boardData.boardsQuares[square - 1].id === square
-    ) {
+    } else {
       this.boardData.boardsQuares[square - 1].disk = true;
       this.playerOne = true;
       this.playerTwo = false;
