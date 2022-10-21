@@ -79,47 +79,24 @@ export class BoardComponent implements OnInit {
   }
 
   isThereWinner() {
-    // TODO: KISS and refactor
-
     let crosses = this.boardData.boardsQuares.map(item => item.cross);
-    if (crosses[0] === true && crosses[1] === true && crosses[2] === true) {
-      this.endResults('cross');
-    }
-    if (crosses[3] === true && crosses[4] === true && crosses[5] === true) {
-      this.endResults('cross');
-    }
-    if (crosses[6] === true && crosses[7] === true && crosses[8] === true) {
-      this.endResults('cross');
-    }
-    if (crosses[0] === true && crosses[4] === true && crosses[8] === true) {
-      this.endResults('cross');
-    }
-    if (crosses[2] === true && crosses[4] === true && crosses[6] === true) {
-      this.endResults('cross');
-    }
+    crosses[0] && crosses[1] && crosses[2] ? this.endResults('cross') : '';
+    crosses[3] && crosses[4] && crosses[5] ? this.endResults('cross') : '';
+    crosses[6] && crosses[7] && crosses[8] ? this.endResults('cross') : '';
+    crosses[0] && crosses[4] && crosses[8] ? this.endResults('cross') : '';
+    crosses[2] && crosses[4] && crosses[6] ? this.endResults('cross') : '';
 
     let disks = this.boardData.boardsQuares.map(item => item.disk);
-    if (disks[0] === true && disks[1] === true && disks[2] === true) {
-      this.endResults('disk');
-    }
-    if (disks[3] === true && disks[4] === true && disks[5] === true) {
-      this.endResults('disk');
-    }
-    if (disks[6] === true && disks[7] === true && disks[8] === true) {
-      this.endResults('disk');
-    }
-    if (disks[0] === true && disks[4] === true && disks[8] === true) {
-      this.endResults('disk');
-    }
-    if (disks[2] === true && disks[4] === true && disks[6] === true) {
-      this.endResults('disk');
-    }
+    disks[0] && disks[1] && disks[2] ? this.endResults('disk') : '';
+    disks[3] && disks[4] && disks[5] ? this.endResults('disk') : '';
+    disks[6] && disks[7] && disks[8] ? this.endResults('disk') : '';
+    disks[0] && disks[4] && disks[8] ? this.endResults('disk') : '';
+    disks[2] && disks[4] && disks[6] ? this.endResults('disk') : '';
   }
 
   endResults(winner: string) {
     if (winner === 'cross') this.playersData.winnersName = this.players[0];
     if (winner === 'disk') this.playersData.winnersName = this.players[1];
-
     this.playersData.winner = true;
     this.boardData.gameFinished = true;
   }
