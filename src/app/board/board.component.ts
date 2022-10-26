@@ -80,19 +80,29 @@ export class BoardComponent implements OnInit {
   }
 
   isThereWinner() {
+    // TODO: KISS
     let crosses = this.boardData.boardsQuares.map(item => item.cross);
-    crosses[0] && crosses[1] && crosses[2] ? this.endResults('cross') : '';
-    crosses[3] && crosses[4] && crosses[5] ? this.endResults('cross') : '';
-    crosses[6] && crosses[7] && crosses[8] ? this.endResults('cross') : '';
-    crosses[0] && crosses[4] && crosses[8] ? this.endResults('cross') : '';
-    crosses[2] && crosses[4] && crosses[6] ? this.endResults('cross') : '';
+    // horizontal
+    if (crosses[0] && crosses[1] && crosses[2]) this.endResults('cross');
+    if (crosses[3] && crosses[4] && crosses[5]) this.endResults('cross');
+    if (crosses[6] && crosses[7] && crosses[8]) this.endResults('cross');
+    // diagonal
+    if (crosses[0] && crosses[4] && crosses[8]) this.endResults('cross');
+    if (crosses[2] && crosses[4] && crosses[6]) this.endResults('cross');
+    // vertical
+    if (crosses[0] && crosses[3] && crosses[6]) this.endResults('cross');
+    if (crosses[1] && crosses[4] && crosses[7]) this.endResults('cross');
+    if (crosses[2] && crosses[5] && crosses[8]) this.endResults('cross');
 
     let disks = this.boardData.boardsQuares.map(item => item.disk);
-    disks[0] && disks[1] && disks[2] ? this.endResults('disk') : '';
-    disks[3] && disks[4] && disks[5] ? this.endResults('disk') : '';
-    disks[6] && disks[7] && disks[8] ? this.endResults('disk') : '';
-    disks[0] && disks[4] && disks[8] ? this.endResults('disk') : '';
-    disks[2] && disks[4] && disks[6] ? this.endResults('disk') : '';
+    if (disks[0] && disks[1] && disks[2]) this.endResults('disk');
+    if (disks[3] && disks[4] && disks[5]) this.endResults('disk');
+    if (disks[6] && disks[7] && disks[8]) this.endResults('disk');
+    if (disks[0] && disks[4] && disks[8]) this.endResults('disk');
+    if (disks[2] && disks[4] && disks[6]) this.endResults('disk');
+    if (disks[0] && disks[3] && disks[6]) this.endResults('disk');
+    if (disks[1] && disks[4] && disks[7]) this.endResults('disk');
+    if (disks[2] && disks[5] && disks[8]) this.endResults('disk');
   }
 
   endResults(winner: string) {
